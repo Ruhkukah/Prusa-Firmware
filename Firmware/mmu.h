@@ -23,7 +23,18 @@ extern uint16_t mmu_power_failures;
 
 #define MMU_LOAD_FEEDRATE 19.02f //mm
 #define MMU_LOAD_TIME_MS 2000 //should be fine tuned to load time for shortest allowed PTFE tubing and maximum loading speed
-#define isEXTLoaded true // (PIN_GET(IR_SENSOR_PIN) == 0)
+
+// These defines in support of isEXTLoaded were copied from io_atmega2560.h in TZB-Ruhkukah branch 3.9.0
+#define __PIN_P20 PIND
+#define __PIN_P62 PINK
+#define __BIT_P20 1
+#define __BIT_P62 0
+#define __BIT(pin) __BIT_P##pin
+#define __MSK(pin) (1 << __BIT(pin))
+#define __PIN(pin) __PIN_P##pin
+#define PIN(pin) __PIN(pin)
+#define PIN_GET(pin) (PIN(pin) & __MSK(pin)) 
+#define isEXTLoaded (PIN_GET(IR_SENSOR_PIN) == 0)
 
 enum class MmuCmd : uint_least8_t
 {

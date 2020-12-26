@@ -349,7 +349,7 @@ static void lcd_implementation_drawmenu_sdfile_selected(uint8_t row, const char*
 
     if (longFilename[0] == '\0')
     {
-        longFilename = filename;
+        longFilename =  const_cast<char*>(filename);
     }
 
     int i = 1;
