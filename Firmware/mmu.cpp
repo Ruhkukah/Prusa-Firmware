@@ -953,7 +953,7 @@ void mmu_load_step(bool synchronize)
 {
   shutdownE0(false);
   current_position[E_AXIS] = current_position[E_AXIS] + MMU_LOAD_FEEDRATE * 0.1;
-  plan_buffer_line_curposXYZE(MMU_LOAD_FEEDRATE;
+  plan_buffer_line_curposXYZE(MMU_LOAD_FEEDRATE);
   if (synchronize)
     st_synchronize();
 }

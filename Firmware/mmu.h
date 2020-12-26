@@ -21,9 +21,9 @@ extern uint16_t mmu_power_failures;
 
 #define MMU_FILAMENT_UNKNOWN 255
 
-#define MMU_LOAD_FEEDRATE 19.02f //mm/s
+#define MMU_LOAD_FEEDRATE 19.02f //mm
 #define MMU_LOAD_TIME_MS 2000 //should be fine tuned to load time for shortest allowed PTFE tubing and maximum loading speed
-#define isEXTLoaded (PIN_GET(IR_SENSOR_PIN) == 0)
+#define isEXTLoaded true // (PIN_GET(IR_SENSOR_PIN) == 0)
 
 enum class MmuCmd : uint_least8_t
 {
